@@ -12,62 +12,75 @@
         }
 
         /* Add your CSS script below */
-        p {
-            line-height: 25px;
+        body {
+            font-size: 16px;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: lightyellow;
+
+            background-image: url(images/justin_bg.jpg);
+            background-repeat: no-repeat;
+            background-attachment: fixed;
         }
+
 
         .outer-box {
             margin-top: 15px;
-            font-family: Arial, Helvetica, sans-serif;
-            background-image: url(images/justin_bg.jpg);
+            width: 80%;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .header-box {
             background-color: black;
             color: white;
-            padding: 15px 20px 20px 15px;
+
+            padding: 20px 15px 20px 15px;
             border-left: blue solid 5px;
             border-right: blue solid 5px;
             border-top: blue dotted 5px;
             border-bottom: blue dotted 5px;
-            margin-left: 10%;
-            margin-right: 10%;
+            
+            line-height: 1.5em;
         }
 
         .header-box h1 {
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
             font-style: italic;
             text-decoration-line: underline;
             text-transform: uppercase;
+            font-weight: 800;
+            letter-spacing: 0.5em;
+            word-spacing: 1em;
+            padding-bottom: 10px;
         }
 
-        .header-box p {
-            padding-top: 5px;
-        }
 
         .middle-box {
             margin-top: 20px;
             background-color: yellow;
-            border: red dotted 10px;
-            margin-left: 10%;
-            margin-right: 10%;
+            border: red dotted 3px;
+            padding: 10px;
+            border-width: 10px;
         }
 
         .middle-box h1 {
             text-align: center;
             background-color: pink;
             border: blue dotted;
+            border-width: 3px;
             padding: 15px;
-            margin: 10px 115px 5px 115px;
+            margin-bottom: 15px;
+            margin: auto;
+            width: 50%;
         }
 
         .middle-box p {
-            padding: 10px 15px 5px 10px;
             line-height: 2em;
         }
 
         .middle-box a {
             text-decoration: none;
-            color: red;
+            color: orangered;
         }
 
         .middle-box a:hover {
@@ -78,11 +91,10 @@
 
         .bottom-box {
             margin-top: 20px;
-            border: green solid;
-            border-radius: 20px;
-            background-color:chartreuse;
-            margin-left: 10%;
-            margin-right: 10%;
+            border: green solid 3px;
+            border-radius: 30px;
+            background-color:rgb(115,255,119);
+            padding: 10px;
         }
 
         .bottom-box h2 {
@@ -91,42 +103,58 @@
             padding: 10px
         }
 
-        .bottom-box li {
+        .bottom-box ul {
             list-style-image: url(images/justin_list_button.png);
             list-style-position: inside;
+        }
+
+        .bottom-box li {
+            border-bottom: dotted 2px black;
+            padding-bottom: 5px;
+            padding-top: 5px;
         }
 
         .love-box {
             border: 5px solid purple;
             margin-top: 20px;
-            margin-left: 10%;
-            margin-right: 10%;
+            padding: 20px
         }
 
         .love-box h2 {
             text-align: center;
-            border: red dotted;
+            border: red dotted 3px;
             background-color: pink;
-            margin: 20px;
+            margin-bottom: 20px;
         }
 
-        .love-box .button {
+        .form-field {
+            padding-bottom: 15px;
+        }
+
+        .form-field label {
+            display: block;
+        }
+
+        .form-field input[type='text'], .form-field textarea {
+            width: 60%;
+            padding: 10px;
+        }
+
+        .button {
             background-color: black;
             color: white;
-            padding: 10px 15px;
-            font-size:larger;
-            margin: 15px 10px 20px 20px;
+            padding: 10px 20px;
+            font-size: x-large;
+            border: none;
         }
 
         .footer-box {
             background-color: grey;
             color: white; 
             margin: 30px 0px 20px 0px;
-        }
-
-        .footer-box p {
+            width: 100%;
             text-align: center;
-            font-family: Arial, Helvetica, sans-serif;
+            font-size: medium;
         }
 
     </style>
@@ -156,7 +184,7 @@
                 Bieber was born on March 1, 1994, in London, Ontario, at St Joseph's Hospital, and was raised in Stratford, Ontario. He is the only child of Jeremy Jack Bieber and Pattie Mallette, who were never married. Mallette's mother Diane and stepfather Bruce helped her raise her son. Bieber's ancestry includes French-Canadian, Irish, English, Scottish, and German.
             </p>
 
-            <p style='background-color: aqua; font-style: italic; text-align: center; padding: 0px; margin: 0px 10px 10px 10px;'>
+            <p style='background-color: aqua; font-style: italic; text-align: center;'>
                 For more information, visit <a href="https://en.wikipedia.org/wiki/Justin_Bieber" target="_blank">this Wiki page</a> and read!
             </p>
         </div>
