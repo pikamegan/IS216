@@ -35,7 +35,17 @@
         // HINT: You need to APPEND additional HTML to table_data
         
         // WRITE YOUR CODE HERE
+        for (friend of friends) {
+            table_data += `<tr>`  
+            
+            for (item of friend) {
+                table_data += `<td>${item}</td>`
+            }
+    
+            table_data += `</tr>`
+        }     
 
+        table_data += `</table>`
 
 
         // Once table_data is completed

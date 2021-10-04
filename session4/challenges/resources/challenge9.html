@@ -18,19 +18,25 @@
         */
 
         function convert_first_letter(str) {
-            
             // YOUR CODE GOES HERE
-            
+            var arr = str.split(' ');
+            var new_arr = [];
+
+            for(var i = 0; i < arr.length; i++) {
+                new_arr.push( arr[i].charAt(0).toUpperCase() + arr[i].slice(1) );
+            }
+
+            return new_arr.join(' ');
         }
 
         
         // Prompt user to enter a sentence
         var input_sentence = 'the very cute puppy'; // Test Case
-        //var input_sentence = prompt("Enter a sentence (in all lowercase)");
+        var input_sentence = prompt("Enter a sentence (in all lowercase)");
         output_sentence = convert_first_letter(input_sentence);
         console.log( output_sentence ); // Debug message to Console
         // To see the output, go open Chrome --> Developer Tools --> Console
-        //alert(output_sentence);
+        // alert(output_sentence);
         // Do NOT modify the above code
 
     </script>

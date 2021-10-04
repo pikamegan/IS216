@@ -29,7 +29,21 @@
         */
 
         // WRITE YOUR CODE HERE
-
+        var num = prompt('Please enter an integer between 1 and 10 (both inclusive)')
+        num = num.trim()
+        if (Number(num) && num <= 10 && num >= 1) {
+            var lucky_number = Math.floor(Math.random()*10)+1
+            console.log(lucky_number)
+            if (num == lucky_number) {
+                alert('Lucky number is ' + lucky_number + '! Have a nice day!')
+            }
+            else {
+                alert('Lucky number is ' + lucky_number + '! Ouch...try again next time!')
+            }
+        }
+        else {
+            alert('Hello Hello Invalid Input!')
+        }
     </script>
 
 </head>
