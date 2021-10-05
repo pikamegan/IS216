@@ -76,7 +76,6 @@ const reviews = {
     ]
 };
 
-
 // [TODO] IMPLEMENT THIS FUNCTION
 // When the webpage loads, the web browser will call this function.
 // This function must read data from 'reviews' constant variable
@@ -87,108 +86,89 @@ function display_reviews() {
     // As the first step, observe the 'reviews' constant variable.
     // What kind of data structure is it?
     // How do you retrieve each hotel's data?
+    let hotel_button_div_str = "";
+    let hotel_info_div_str = "";
+    
+    let counter = 1
+
+    for (rev in reviews) {
+        let name = rev
+        let details = reviews[name]
+
+        let addr = details[0]
+        let ph = details[1]
+        let rank = details[2]
+        let img = details[3]
+
+        var show = ""
+        if (counter == 1) {
+            show = 'show'
+        }
+
+        hotel_button_div_str += `
+                <button style="margin-bottom: 5px" class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#hotel${counter}">
+                    ${name}
+                </button>`
+
+        hotel_info_div_str += `
+    
+                <div class="collapse ${show}" id="hotel${counter}">
+                    <div class="card card-body">
+                        <div class="container-fluid">
+                            <h2 style="font-weight: bold">${name}</h2>
+                            <ul class="list-unstyled">
+                                <li>
+                                    <img src="images/${img}">
+                                </li>
+                                <li>
+                                    <i class="fas fa-map-marked-alt"></i>
+                                    ${addr}
+                                </li>
+                                <li>
+                                    <i class="fas fa-phone"></i>
+                                    ${ph}
+                                </li>
+                                <li>
+                                    <i class="fas fa-star"></i>
+                                    ${rank}
+                                </li>
+                            </ul>
+                        </div>
+    
+                        <hr class="my-3">`
+
+        let hotel_reviews_str =
+            `<div class="container-fluid">`
+
+        var ratings = details[4]
+        for (rate in ratings) {
+            var reviewer = rate
+            var revContent = ratings[rate]
+
+            hotel_reviews_str +=
+                `<blockquote class="blockquote">
+                <p class="mb-0">${revContent}</p>
+                <footer class="blockquote-footer">
+                    <cite>${reviewer}</cite>
+                </footer>
+            </blockquote>`
+        }
+        
+        hotel_info_div_str += hotel_reviews_str
 
 
-    // [IMPORTANT]
-    // This code populates 'hotel_buttons_div' section of HTML.
-    // 
-    // Below, as an example, we populate 2 buttons.
-    //
-    // Observe - what needs to be updated for each button.
-    // e.g. How about id attribute?
-    //      Is this button's id... used by another code later on (see below - collapse div).
-    // e.g. What about the hotel's name?
-    var hotel_button_div = document.getElementById('hotel_button_div');
-    console.log(hotel_button_div);
-    hotel_button_div.innerHTML = `
-            <button style="margin-bottom: 5px" class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#hotel1">
-                Hotel name placeholder 1
-            </button>
-
-            <button style="margin-bottom: 5px" class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#hotel2">
-                Hotel name placeholder 2
-            </button>
+        hotel_info_div_str +=
+                    `</div>
+                </div> 
+            </div> 
     `;
-
-
-    // [IMPORTANT]
-    // This code populates Populate 'hotel_info_div' section of HTML.
-    // 
-    // Below, as an example, we populate information about 2 hotels.
-    //
-    // NOTE that when challenge11.html loads for the first time
-    //   - The FIRST hotel's 'collapse' <div> must be expanded ('show' must be enabled)
-    //   - All subsequent hotels' <div>s can remain closed ('show is NOT enabled)
-    //
-    // Observe - what needs to be updated for each 'collapse' div.
-    // e.g. How about id attribute?
-    //      Does this id value have to match... button's id? Why?
-    // e.g. Hotel's name, <img> URL, address, phone number, ranking info...
-    //        as retrieved from 'reviews' constant variable.
-    //
-    // e.g. Also note that each hotel has 5 customer reviews.
-    //      Think about how you'd construct a String... 
-    //      containing all 5 reviews (review comment & reviewer's name)
-    var hotel_button_div = document.getElementById('hotel_info_div');
-    console.log(hotel_info_div);
-    hotel_info_div.innerHTML = `
-            <!-- Hotel 1 -->
-            <div class="collapse show" id="hotel1">
-                <div class="card card-body">
-                    <div class="container-fluid">
-                        <h2 style="font-weight: bold">Hotel Name Goes Here - Hotel 1</h2>
-                        <ul class="list-unstyled">
-                            <li>
-                                <img src="images/sm_hotel_placeholder.jpg">
-                            </li>
-                            <li>
-                                <i class="fas fa-map-marked-alt"></i>
-                                123 Simpson Avenue, New York City, NY 10014-1234, USA
-                            </li>
-                            <li>
-                                <i class="fas fa-phone"></i>
-                                +1 212-555-1234
-                            </li>
-                            <li>
-                                <i class="fas fa-star"></i>
-                                Ranked #100 of 700 Hotels in New York City
-                            </li>
-                        </ul>
-                    </div>
-
-                    <hr class="my-3">
-
-                    <div class="container-fluid">
-                        <blockquote class="blockquote">
-                            <p class="mb-0">The review comments goes here.</p>
-                            <footer class="blockquote-footer">
-                                <cite>Homer Simpson</cite>
-                            </footer>
-                        </blockquote>
-
-                        <blockquote class="blockquote">
-                            <p class="mb-0">The review comments goes here.</p>
-                            <footer class="blockquote-footer">
-                                <cite>Lisa Simpson</cite>
-                            </footer>
-                        </blockquote>
-
-                        <blockquote class="blockquote">
-                            <p class="mb-0">The review comments goes here.</p>
-                            <footer class="blockquote-footer">
-                                <cite>Bart Simpson</cite>
-                            </footer>
-                        </blockquote>
-                    </div> <!-- End of Quotes -->
-                </div> <!-- End of Card Body -->
-            </div> <!-- End of Collapse -->
-
-            <!-- Hotel 2 -->
-            <div class="collapse" id="hotel2" aria-labelledby="hotel2">
-                <div class="card card-body">
-                    Hotel 2 info goes here...
-                </div>
-            </div>
-    `;
-
+        counter ++
+    }
+        var hotel_button_div = document.getElementById('hotel_button_div');
+        hotel_button_div.innerHTML = hotel_button_div_str;
+    
+    
+        var hotel_info_div = document.getElementById('hotel_info_div');
+        hotel_info_div.innerHTML = hotel_info_div_str;
 }
+
